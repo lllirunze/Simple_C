@@ -1,2 +1,2 @@
 # Simple_C
-This is a simple C project
+There are some simple C projects.
