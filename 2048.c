@@ -4,6 +4,7 @@
 
 void init_game();//初始化游戏
 void print_board();//展示现有图像
+void game_over();//游戏结束
 
 int board[4][4];//游戏面板
 
@@ -22,5 +23,9 @@ void init_game(){
 }
 
 void print_board(){
+    
+}
 
+void game_over(){
+    return 0;
 }
