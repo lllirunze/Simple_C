@@ -9,8 +9,13 @@ void game_over();//游戏结束
 int board[4][4];//游戏面板
 
 int main(int argc, char *argv[]){
+
     init_game();
-    return 0;
+    
+    //游戏内容
+    
+    game_over();
+
 }
 
 void init_game(){
@@ -23,7 +28,7 @@ void init_game(){
 }
 
 void print_board(){
-    
+
 }
 
 void game_over(){
