@@ -5,6 +5,7 @@
 void init_game();//初始化游戏
 void print_board();//展示现有图像
 void game_over();//游戏结束
+int determine_victory();//判定游戏是否胜利
 
 int board[4][4];//游戏面板
 
@@ -39,4 +40,14 @@ void print_board(){
 
 void game_over(){
     return 0;
+}
+
+int determine_victory(){
+    int i,j;
+    for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
+            if(board[i][j]>=2048) return 1;//胜利
+        }
+    }
+    return 0;//未胜利
 }
