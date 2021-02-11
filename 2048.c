@@ -28,7 +28,13 @@ void init_game(){
 }
 
 void print_board(){
-
+    int i,j;
+    for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
+            printf(" %4d ",board[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 void game_over(){
