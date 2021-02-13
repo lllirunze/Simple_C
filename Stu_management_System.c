@@ -7,7 +7,7 @@
 struct student{     // 学生的结构体
     char code[20];      // 学号
     char name[10];      // 姓名
-    int age;            // 年龄
+    int  age;           // 年龄
     char sex;           // 性别
     char address[80];   // 地址
     char e_mail[50];    // 邮箱
@@ -108,7 +108,30 @@ void help(){
 }
 
 void readfile(){
+    char filemame[20];
+    FILE *fp;
+    int i=0;
+    printf("请输入已存有学生信息的文件名：\n");
+    scanf("%s",filemame);
+    if((fp=fopen(filemame,"r"))==NULL){         //以只读的方式打开文件
+        printf("打开文件%s错误.\n",filemame);     //文件可能不存在  
+        printf("请先增加学生信息再执行该操作.\n");
+        system("pause");
+        return;
+    }
 
+    while(fscanf(fp,"%s%s%d%s%s%s%s%s",&stu[i].code,&stu[i].name,&stu[i].age,&stu[i].sex,&stu[i].address,&stu[i].e_mail,&stu[i].tel,&stu[i].birth)==8){
+        i++;
+    }       //扫描出文件内所有学生的信息，每个学生有8条个人信息
+
+    n=i;    //将该文件学生数赋予全局变量n
+
+    if(i==0) printf("文件为空，请先选择菜单4来增加学生信息.\n");
+    else printf("读入成功.\n");
+
+    fclose(fp);
+
+    system("pause");
 }
 
 void seek(){
