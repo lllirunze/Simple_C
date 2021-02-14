@@ -17,7 +17,7 @@ struct student{     // 学生的结构体
 
 int n=0,m=0;// 全局变量,n代表当前学生总人数,m表示新增学生人数
 
-void menu();        // 打印菜单
+void menu();        // 进行选择
 void help();        // 帮助界面
 void readfile();    // 读入数据
 void seek();        // 查找信息
@@ -51,7 +51,7 @@ int main(){
 	printf("\t****************************\n\n");
 
     while(1){
-        menu();// 循环打印菜单
+        menu();
     }
 
     system("pause");
@@ -111,7 +111,7 @@ void readfile(){
     char filemame[20];
     FILE *fp;
     int i=0;
-    printf("请输入已存有学生信息的文件名：\n");
+    printf("请输入已存有学生信息的文件名：");
     scanf("%s",filemame);
     if((fp=fopen(filemame,"r"))==NULL){         //以只读的方式打开文件
         printf("打开文件%s错误.\n",filemame);     //文件可能不存在  
@@ -135,7 +135,66 @@ void readfile(){
 }
 
 void seek(){
+    int i,item;
+    int flag;               //代表是否查询成功
+    char str[20];           //代表需要输入的学号或姓名
+    printf("**********************\n");
+    printf("  --1.按学号查询--\n");
+    printf("  --2.按姓名查询--\n");
+    printf("  --3.退出本菜单--\n");
+    printf("**********************\n");
+    while(1){
+        printf("请选择子菜单编号：");
+        scanf("%d",&item);
+        flag=0;
+        switch(item){
+            case 1:
+                printf("请输入要查询的学号：");
+                scanf("%s",str);
+                for(i=0;i<n;i++){
+                    if(strcmp(stu[i].code,str)==0){
+                        flag=1;
+                        printf("  学号:%s\n",stu[i].code);
+                        printf("  姓名:%s\n",stu[i].name);
+                        printf("  性别:%d\n",stu[i].age);
+                        printf("  性别:%c\n",stu[i].sex);
+                        printf("  地址:%s\n",stu[i].address);
+                        printf("  邮箱:%s\n",stu[i].e_mail);
+                        printf("  电话:%s\n",stu[i].tel);
+                        printf("  出生日期:%s\n",stu[i].birth);
+                    }
+                    break;
+                }
+                if(flag==0) printf("该学号不存在.\n");
+                break;
+            
+            case 2:
+                printf("请输入要查询的姓名：");
+                scanf("%s",str);
+                for(i=0;i<n;i++){
+                    if(strcmp(stu[i].code,str)==0){
+                        flag=1;
+                        printf("  学号:%s\n",stu[i].code);
+                        printf("  姓名:%s\n",stu[i].name);
+                        printf("  性别:%d\n",stu[i].age);
+                        printf("  性别:%c\n",stu[i].sex);
+                        printf("  地址:%s\n",stu[i].address);
+                        printf("  邮箱:%s\n",stu[i].e_mail);
+                        printf("  电话:%s\n",stu[i].tel);
+                        printf("  出生日期:%s\n",stu[i].birth);
+                    }
+                    break;
+                }
+                if(flag==0) printf("该姓名不存在.\n");
+                break;
 
+            case 3:
+                return;
+
+            default:
+                printf("请在1-3之间查询.\n");
+        }
+    }
 }
 
 void modify(){
