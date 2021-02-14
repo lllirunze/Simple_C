@@ -198,7 +198,7 @@ void seek(){
 }
 
 void modify(){
-
+    
 }
 
 void insert(){
@@ -210,7 +210,16 @@ void del(){
 }
 
 void display(){
-
+    int i;
+    printf("共有%d位学生的信息:\n\n",n);
+    if(n!=0){
+        printf("学号\t学生姓名 年龄\t性别\t地址\t\t邮箱\t\t电话\t\t出生日期  \n");             
+        printf("--------------------------------------------------------------------\n");            
+        for(i=0;i<n;i++){ 
+           printf("%s\t%s\t %d\t%c\t%s\t%s\t%s\t%s\n",stu[i].code,stu[i].name,stu[i].age,stu[i].sex,stu[i].address,stu[i].e_mail,stu[i].tel,stu[i].birth);
+        }
+    }
+    system("pause");
 }
 
 void save(){
