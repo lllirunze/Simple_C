@@ -223,5 +223,16 @@ void display(){
 }
 
 void save(){
-
+    int i;
+    FILE *fp;
+    char filename[20];
+    printf("请输入要保存该信息的文件名:");
+    scanf("%s",filename);
+    fp=fopen(filename,"w");
+    for(i=0;i<n;i++){
+        fprintf(fp,"%s\t%s\t %d\t%c\t%s\t%s\t%s\t%s\n",stu[i].code,stu[i].name,stu[i].age,stu[i].sex,stu[i].address,stu[i].e_mail,stu[i].tel,stu[i].birth);
+    }
+    printf("保存成功.\n");
+    fclose(fp);
+    system("pause");
 }
