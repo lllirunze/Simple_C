@@ -280,7 +280,27 @@ void modify(){
 }
 
 void insert(){
+    int i;
+    int flag;
+    int j=n;
+    printf("请输入待增加的学生数:");
+    scanf("%d",&m);
 
+    if(m<=0){       //m可能<=0
+        printf("新增学生数需要大于0.\n");
+        return;
+    }
+
+    /*
+
+    TODO:
+    增加学生信息的核心函数
+    
+    */
+
+    n+=m;       //学生总数上升m个
+    printf("信息添加完毕.\n");
+    system("pause");
 }
 
 void del(){
