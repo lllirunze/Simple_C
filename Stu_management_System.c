@@ -198,7 +198,85 @@ void seek(){
 }
 
 void modify(){
-    
+    int i;
+    int flag=0;                 //flag表示是否查询到该学生
+    int item,num;               //item表示子菜单的编号,num表示保存要修改信息的学生的序号
+    char s1[20],s2[20];
+    char sex1;
+    char address1;
+    char e_mail1;
+    char tel1;
+    char birth1;
+
+    printf("请输入要修改的学生的学号:");
+    scanf("%s",s1);
+    for(i=0;i<n;i++){
+        if(strcmp(stu[i].code,s1)==0){
+            num=i;
+            flag=1;
+        }
+    }
+
+    if(flag==0){
+        printf("未查询到该学生信息.\n");
+        return;
+    }
+
+    printf("------------------\n");
+    printf("  1.修改姓名\n");
+    printf("  2.修改年龄\n");
+    printf("  3.修改性别\n");
+    printf("  4.修改地址\n");
+    printf("  5.修改邮箱\n");
+    printf("  6.修改电话\n");
+	printf("  7.修改出生日期\n");
+    printf("  8.退出本菜单\n");
+    printf("------------------\n");
+
+    while(1){
+        printf("请输入子菜单编号:");
+        scanf("%d",&item);
+        switch(item){
+            case 1:
+                printf("请输入新的姓名:\n");
+                scanf("%s",s2);
+                strcpy(stu[num].name,s2); 
+                break;
+            case 2:
+                printf("请输入新的年龄:\n");
+                scanf("%d",stu[num].age);
+                break;
+            case 3:
+                printf("请输入新的性别:\n");
+                scanf("%s",&sex1);
+                stu[num].sex=sex1; 
+                break;	
+			case 4:
+                printf("请输入新的地址:\n");
+                scanf("%s",&address1);
+                strcpy(stu[num].address ,&address1); 
+                break;
+            case 5:
+                printf("请输入新的邮箱:\n");
+                scanf("%s",&e_mail1);
+                strcpy(stu[num].e_mail,&e_mail1); 
+                break;
+            case 6:
+                printf("请输入新的电话:\n");
+                scanf("%s",&tel1);
+                strcpy(stu[num].tel,&tel1); 
+                break;
+            case 7: 
+				printf("请输入新的出生日期:\n");
+				scanf("%s",&birth1);
+                strcpy(stu[num].birth,&birth1); 
+                break;
+            case 8:
+                return;
+            default:
+                printf("请在1-8之间选择.\n");
+        }
+    }
 }
 
 void insert(){
