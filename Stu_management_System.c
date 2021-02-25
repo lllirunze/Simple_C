@@ -291,12 +291,43 @@ void insert(){
         return;
     }
 
-    /*
+    do{             //添加学生信息
+        flag=1;
+        while(flag){
+            flag=0;
+            printf("请输入第%d位学生的学号(需查重):",j+1);
+            scanf("%s",stu[j].code);
+            for(i=0;i<j;i++){           //查重
+                if(strcmp(stu[j].code,stu[i].code)==0){
+                    printf("已有该学号,请重新录入.\n");
+                    flag=1;
+                    break;              //退出for循环，继续while循环，因为flag=1
+                }
+            }
+        }
+        printf("请输入第%d个学生的学号:\n",j+1);
+        scanf("%s",&stu[j].code,8);
+        printf("请输入第%d个学生的姓名:\n",j+1);
+        scanf("%s",&stu[j].name);
+        printf("请输入第%d个学生的年龄:\n",j+1);
+        scanf("%d",&stu[j].age);
+        printf("请输入第%d个学生的性别:\n",j+1);
+        scanf(" %c",&stu[j].sex);
+        printf("请输入第%d个学生的地址\n",j+1);
+        scanf("%s",&stu[j].address);
+        printf("请输入第%d个学生的邮箱:\n",j+1);
+        scanf("%s",&stu[j].e_mail);
+        printf("请输入第%d个学生的电话:\n",j+1);
+        scanf("%s",&stu[j].tel);
+		printf("请输入第%d个学生的出生日期:\n",j+1);
+        scanf("%s",&stu[j].birth);
 
-    TODO:
-    增加学生信息的核心函数
-    
-    */
+        if(flag==0){
+            j++;
+        }
+
+    }while(j<n+m);
+
 
     n+=m;       //学生总数上升m个
     printf("信息添加完毕.\n");
