@@ -335,7 +335,9 @@ void insert(){
 }
 
 void del(){
-
+    int i,j;
+    int flag=0;
+    
 }
 
 void display(){
