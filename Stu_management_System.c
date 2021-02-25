@@ -312,7 +312,7 @@ void insert(){
         printf("请输入第%d个学生的年龄:\n",j+1);
         scanf("%d",&stu[j].age);
         printf("请输入第%d个学生的性别:\n",j+1);
-        scanf(" %c",&stu[j].sex);
+        scanf("%c",&stu[j].sex);
         printf("请输入第%d个学生的地址\n",j+1);
         scanf("%s",&stu[j].address);
         printf("请输入第%d个学生的邮箱:\n",j+1);
@@ -337,7 +337,25 @@ void insert(){
 void del(){
     int i,j;
     int flag=0;
-    
+    char s1[20];
+    scanf("%s",s1);
+    for(i=0;i<n;i++){
+        if(strcmp(stu[i].code,s1)==0){
+            flag=1;     //找到了要删除的学生
+            for(j=i;j<n-1;j++){
+                stu[j]=stu[j+1];
+            }
+            break;
+        }
+    }
+    if(flag==0){
+        printf("该学号不存在.\n");
+    }
+    else{
+        printf("删除成功,显示结果请选择菜单.\n");
+        n--;            //去掉一个学生
+    }
+    system("pause");
 }
 
 void display(){
